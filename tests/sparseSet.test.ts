@@ -27,9 +27,9 @@ describe("Sparse Set testing", () => {
 
         let sparseSet = new SparseSet<Entity, number>()
 
-        let e0 = new Entity(1)
-        let e1 = new Entity(2)
-        let e2 = new Entity(3)
+        let e0 = new Entity(0)
+        let e1 = new Entity(1)
+        let e2 = new Entity(2)
 
         let e0Value = 100
         let e1Value = 200
@@ -46,15 +46,21 @@ describe("Sparse Set testing", () => {
 
         let sparseSet = new SparseSet<Entity, number>()
 
-        let e0 = new Entity(1)
-        let e1 = new Entity(2)
+        let e0 = new Entity(0)
+        let e1 = new Entity(1)
+        let e2 = new Entity(2)
+
+        let e0Value = 100
+        let e1Value = 200
 
         sparseSet.add(e0, 100)
         sparseSet.add(e1, 200)
 
-        sparseSet.deleteValue(e0)
-        sparseSet.deleteValue(e1)
-        
+        expect(sparseSet.deleteValue(e0)).toBe(e0Value)
+        expect(sparseSet.deleteValue(e1)).toBe(e1Value)
+
+        expect(sparseSet.deleteValue(e2)).toBeUndefined()
+
         expect(sparseSet.getValue(e0)).toBeUndefined()
         expect(sparseSet.getValue(e1)).toBeUndefined()
     })
