@@ -49,9 +49,6 @@ describe("Sparse Set testing", () => {
         let e0 = new Entity(1)
         let e1 = new Entity(2)
 
-        let e0Value = 100
-        let e1Value = 200
-
         sparseSet.add(e0, 100)
         sparseSet.add(e1, 200)
 
